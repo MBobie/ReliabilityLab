@@ -1,0 +1,51 @@
+{
+    "metadata": {
+        "dataset": "BANKING77",
+        "dataset_source": "DeepPavlov/banking77",
+        "model": "TF-IDF + Logistic Regression",
+        "train_fraction": 0.8,
+        "full_training_samples": 10003,
+        "samples_per_run": 8002,
+        "test_samples": 3080,
+        "seeds": [
+            1,
+            7,
+            21,
+            42,
+            84,
+            123,
+            256,
+            512,
+            1024,
+            2026
+        ],
+        "reference_full_data_accuracy": 0.8588,
+        "reference_full_data_macro_f1": 0.8581
+    },
+    "summary": {
+        "accuracy": {
+            "n_runs": 10,
+            "mean": 0.8472727272727273,
+            "std": 0.0031523059280953746,
+            "median": 0.8478896103896104,
+            "min": 0.8425324675324676,
+            "max": 0.8535714285714285,
+            "range": 0.01103896103896096,
+            "ci_95_lower": 0.845017703457332,
+            "ci_95_upper": 0.8495277510881226,
+            "peak_mean_gap": 0.006298701298701248
+        },
+        "macro_f1": {
+            "n_runs": 10,
+            "mean": 0.8459586335513574,
+            "std": 0.003133227265944304,
+            "median": 0.8465285467660427,
+            "min": 0.8416166751527006,
+            "max": 0.8523468373613813,
+            "range": 0.010730162208680727,
+            "ci_95_lower": 0.8437172577886886,
+            "ci_95_upper": 0.8482000093140262,
+            "peak_mean_gap": 0.006388203810023918
+        }
+    }
+}
