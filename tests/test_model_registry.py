@@ -67,3 +67,58 @@ def test_unknown_model_raises():
         build_model(
             "does-not-exist"
         )
+
+def test_available_models_contains_character_tfidf_svm():
+
+    assert (
+        "char_tfidf_svm"
+        in available_models()
+    )
+def test_build_character_tfidf_svm_model():
+
+    model = build_model(
+        "char_tfidf_svm"
+    )
+
+    assert (
+        "tfidf"
+        in model.named_steps
+    )
+
+    assert (
+        "classifier"
+        in model.named_steps
+    )
+
+    assert (
+        model.named_steps[
+            "tfidf"
+        ].analyzer
+        == "char_wb"
+    )    
+def test_word_tfidf_svm_has_fixed_random_state():
+
+    model = build_model(
+        "tfidf_svm"
+    )
+
+    assert (
+        model.named_steps[
+            "classifier"
+        ].random_state
+        == 42
+    )
+
+
+def test_char_tfidf_svm_has_fixed_random_state():
+
+    model = build_model(
+        "char_tfidf_svm"
+    )
+
+    assert (
+        model.named_steps[
+            "classifier"
+        ].random_state
+        == 42
+    )    

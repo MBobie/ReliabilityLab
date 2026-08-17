@@ -4,6 +4,9 @@ from collections.abc import Callable
 
 from sklearn.pipeline import Pipeline
 
+from .char_tfidf_svm import (
+    build_char_tfidf_svm,
+)
 from .tfidf_logreg import (
     build_tfidf_logreg,
 )
@@ -21,6 +24,9 @@ _MODEL_REGISTRY: dict[
     str,
     ModelBuilder,
 ] = {
+    "char_tfidf_svm":
+        build_char_tfidf_svm,
+
     "tfidf_logreg":
         build_tfidf_logreg,
 

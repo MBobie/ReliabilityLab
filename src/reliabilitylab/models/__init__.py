@@ -1,5 +1,8 @@
 """Model interfaces for ReliabilityLab."""
 
+from .char_tfidf_svm import (
+    build_char_tfidf_svm,
+)
 from .distilbert import (
     load_distilbert_components,
 )
@@ -16,6 +19,7 @@ from .tfidf_svm import (
 
 __all__ = [
     "available_models",
+    "build_char_tfidf_svm",
     "build_model",
     "build_tfidf_logreg",
     "build_tfidf_svm",
