@@ -352,55 +352,6 @@ def word_deletion_severity(
 
     return " ".join(remaining)
 
-
-def perturb_texts_with_severity(
-    texts,
-    perturbation: str,
-    severity: float,
-    seed: int = 42,
-):
-    """Apply a perturbation at a specified severity level."""
-
-    rng = random.Random(seed)
-
-    outputs = []
-
-    for text in texts:
-
-        if perturbation == "typo":
-
-            transformed = typo_swap_severity(
-                text,
-                rng,
-                severity,
-            )
-
-        elif perturbation == "char_delete":
-
-            transformed = character_deletion_severity(
-                text,
-                rng,
-                severity,
-            )
-
-        elif perturbation == "word_delete":
-
-            transformed = word_deletion_severity(
-                text,
-                rng,
-                severity,
-            )
-
-        else:
-            raise ValueError(
-                f"Unknown severity perturbation: "
-                f"{perturbation}"
-            )
-
-        outputs.append(transformed)
-
-    return outputs
-
 def perturb_texts_with_severity(
     texts,
     perturbation: str,
@@ -634,3 +585,5 @@ def perturb_texts_probabilistic(
         return outputs, stats
 
     return outputs    
+
+    

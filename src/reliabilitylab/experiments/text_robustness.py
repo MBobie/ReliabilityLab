@@ -11,7 +11,6 @@ from reliabilitylab.metrics import (
 )
 from reliabilitylab.perturbations import perturb_texts
 
-
 PERTURBATIONS = [
     "typo",
     "char_delete",

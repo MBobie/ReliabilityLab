@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from reliabilitylab!")
+"""ReliabilityLab: tools for evaluating AI reliability and robustness."""

@@ -1,12 +1,11 @@
 """Reliability statistics for repeated experiments."""
 
-from typing import Dict
 
 import numpy as np
 from scipy import stats
 
 
-def summarize_repeated_runs(values) -> Dict[str, float]:
+def summarize_repeated_runs(values) -> dict[str, float]:
     """Summarize a collection of repeated experiment scores.
 
     Parameters

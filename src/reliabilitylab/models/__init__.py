@@ -1,3 +1,23 @@
-from .tfidf_logreg import build_tfidf_logreg
+"""Model interfaces for ReliabilityLab."""
 
-__all__ = ["build_tfidf_logreg"]
+from .distilbert import (
+    load_distilbert_components,
+)
+from .registry import (
+    available_models,
+    build_model,
+)
+from .tfidf_logreg import (
+    build_tfidf_logreg,
+)
+from .tfidf_svm import (
+    build_tfidf_svm,
+)
+
+__all__ = [
+    "available_models",
+    "build_model",
+    "build_tfidf_logreg",
+    "build_tfidf_svm",
+    "load_distilbert_components",
+]

@@ -5,7 +5,6 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-
 LABELS = {
     "typo": "Typo",
     "char_delete": "Character deletion",

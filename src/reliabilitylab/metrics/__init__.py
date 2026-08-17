@@ -7,7 +7,7 @@ from .robustness import (
 
 __all__ = [
     "classification_metrics",
-    "summarize_repeated_runs",
-    "robustness_drop",
     "relative_robustness_drop",
+    "robustness_drop",
+    "summarize_repeated_runs",
 ]

@@ -4,7 +4,28 @@ __pycache__/
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
 
 # Virtual environments
-.venv
+.venv/
+
+# Model checkpoints and weights
+# Large and regenerable — do not commit
+results/**/checkpoint-*/
+results/**/final_model/
+*.safetensors
+*.pt
+*.bin
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+
+# Stray output artifacts
+nvidia-smi
+
+# Temporary Git inspection files
+git_objects.txt
+git_object_sizes.txt
+pending_objects.txt
+pending_object_sizes.txt

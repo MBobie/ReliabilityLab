@@ -1,7 +1,7 @@
 """Repeated stratified subsampling experiments."""
 
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 import pandas as pd
 from sklearn.model_selection import train_test_split

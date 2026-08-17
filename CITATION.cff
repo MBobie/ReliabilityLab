@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use ReliabilityLab in academic work, please cite this software."
+title: "ReliabilityLab"
+type: software
+version: "0.1.0"
+date-released: "2026-08-17"
+authors:
+  - family-names: "Amankwatia"
+    given-names: "Manuel Bobie"
+repository-code: "https://github.com/MBobie/ReliabilityLab"
+license: "MIT"
+abstract: >-
+  ReliabilityLab is an open-source framework for evaluating machine-learning
+  and NLP systems beyond clean benchmark accuracy. It currently supports
+  training-data sensitivity analysis, stochastic text perturbations,
+  probabilistic corruption severity, repeated robustness evaluation,
+  confidence intervals, paired cross-model comparisons, and reproducible
+  experiment artifacts.
+keywords:
+  - machine learning
+  - natural language processing
+  - robustness
+  - reliability
+  - reproducibility
+  - intent classification
+  - model evaluation

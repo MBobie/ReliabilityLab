@@ -98,13 +98,10 @@ Current severity levels: **5%, 10%, 20%, 30%, 40%**.
 
 ## Figures
 
-![TF-IDF probabilistic severity accuracy](results/figures/tfidf_probabilistic_severity_accuracy.png)
-
-![TF-IDF probabilistic severity drop](results/figures/tfidf_probabilistic_severity_drop.png)
-
-![TF-IDF vs DistilBERT accuracy](results/figures/tfidf_vs_distilbert_accuracy.png)
-
-![TF-IDF vs DistilBERT degradation](results/figures/tfidf_vs_distilbert_degradation.png)
+![TF-IDF probabilistic severity accuracy](assets/figures/tfidf_probabilistic_severity_accuracy.png)
+![TF-IDF probabilistic severity drop](assets/figures/tfidf_probabilistic_severity_drop.png)
+![TF-IDF vs DistilBERT accuracy](assets/figures/tfidf_vs_distilbert_accuracy.png)
+![TF-IDF vs DistilBERT degradation](assets/figures/tfidf_vs_distilbert_degradation.png)
 
 ---
 
