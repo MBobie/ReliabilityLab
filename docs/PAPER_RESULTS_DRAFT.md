@@ -689,3 +689,89 @@ These findings motivate reliability evaluation as a multidimensional process
 in which clean accuracy, representation, perturbation mechanism, severity, and
 uncertainty should be examined separately rather than collapsed into a single
 performance number.
+
+# 17. Example-level bootstrap validation
+
+The primary representation result was further evaluated using paired
+example-level bootstrap resampling.
+
+For each dataset, perturbation, and severity condition, the same 10 stochastic
+corruption realizations were evaluated with both the word-TFIDF and
+character-TFIDF Linear SVM models.
+
+For each original test example, correctness was first averaged across the
+10 perturbation realizations. The original test examples were then resampled
+with replacement using 5,000 paired bootstrap replicates.
+
+This treats each original test query as the statistical resampling unit and
+preserves pairing between representations.
+
+## 17.1 Character-level perturbations
+
+The character-TFIDF retention advantage remained positive under example-level
+bootstrap resampling for all three datasets at both 20% and 40% corruption.
+
+At 20% severity, retention-difference 95% bootstrap intervals were:
+
+### Typo
+
+- BANKING77: +5.08 pp, 95% CI [+4.43, +5.73]
+- CLINC150: +4.20 pp, 95% CI [+3.71, +4.69]
+- HWU64: +3.97 pp, 95% CI [+2.89, +4.98]
+
+### Character deletion
+
+- BANKING77: +5.85 pp, 95% CI [+5.26, +6.42]
+- CLINC150: +5.25 pp, 95% CI [+4.83, +5.67]
+- HWU64: +5.41 pp, 95% CI [+4.48, +6.34]
+
+At 40% severity, the effect increased substantially.
+
+### Typo
+
+- BANKING77: +12.63 pp, 95% CI [+11.76, +13.50]
+- CLINC150: +10.45 pp, 95% CI [+9.79, +11.09]
+- HWU64: +9.75 pp, 95% CI [+8.33, +11.11]
+
+### Character deletion
+
+- BANKING77: +14.61 pp, 95% CI [+13.77, +15.47]
+- CLINC150: +12.37 pp, 95% CI [+11.71, +13.04]
+- HWU64: +13.28 pp, 95% CI [+11.92, +14.63]
+
+Thus, the selective character-level robustness advantage is preserved under
+uncertainty over the evaluated test examples.
+
+## 17.2 Word deletion
+
+In contrast, the normalized retention effect for word deletion remained
+uncertain.
+
+All six word-deletion bootstrap confidence intervals included zero:
+
+- BANKING77, 20%: -0.51 pp, 95% CI [-1.16, +0.13]
+- BANKING77, 40%: -0.51 pp, 95% CI [-1.27, +0.26]
+- CLINC150, 20%: -0.42 pp, 95% CI [-0.90, +0.07]
+- CLINC150, 40%: +0.14 pp, 95% CI [-0.45, +0.72]
+- HWU64, 20%: +0.37 pp, 95% CI [-0.61, +1.37]
+- HWU64, 40%: +0.91 pp, 95% CI [-0.41, +2.23]
+
+This strengthens the interpretation that the character representation advantage
+is specific to character-level corruption rather than a universal robustness
+improvement.
+
+## 17.3 Absolute performance versus normalized robustness
+
+Several word-deletion conditions showed improved absolute corrupted accuracy
+for character TF-IDF while showing no clear normalized retention advantage.
+
+This distinction provides additional evidence that absolute predictive
+performance and normalized robustness should not be treated as interchangeable
+quantities.
+
+A representation may yield a higher corrupted accuracy because it begins from
+a stronger clean baseline, while its proportional degradation under corruption
+remains similar.
+
+This observation directly motivates ReliabilityLab's separation of clean
+performance, perturbed performance, and normalized retention.
