@@ -29,3 +29,5 @@ git_objects.txt
 git_object_sizes.txt
 pending_objects.txt
 pending_object_sizes.txt
+
+results/distilbert/multiseed/**/checkpoint-work/

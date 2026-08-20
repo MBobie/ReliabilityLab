@@ -1,0 +1,2 @@
+seed,model_name,dataset,num_epochs,learning_rate,weight_decay,train_batch_size,eval_batch_size,max_length,training_seconds,training_loss,reused_existing_model,source_model_path,evaluation_seconds
+2026,distilbert-base-uncased,banking77,3,2e-05,0.01,16,32,64,7840.044273376465,1.8779944276657348,False,results\distilbert\multiseed\seed_2026\final_model,5650.8522737026215

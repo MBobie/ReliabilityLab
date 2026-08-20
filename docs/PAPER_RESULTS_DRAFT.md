@@ -775,3 +775,114 @@ remains similar.
 
 This observation directly motivates ReliabilityLab's separation of clean
 performance, perturbed performance, and normalized retention.
+
+
+# 18. Multi-training-seed DistilBERT validation
+
+To determine whether the previously observed DistilBERT corruption sensitivity
+was specific to a single trained network, DistilBERT was independently
+fine-tuned using three training seeds:
+
+- 42,
+- 123,
+- 2026.
+
+Each trained model was evaluated on the same BANKING77 test set and under the
+same probabilistic corruption protocol.
+
+For every trained model, typo, character deletion, and word deletion were
+evaluated at 20% requested severity using the same 10 matched perturbation
+seeds.
+
+The analysis therefore separates two sources of variation:
+
+1. variation between independently trained DistilBERT models, and
+2. variation between stochastic corruption realizations for a fixed trained
+   model.
+
+## 18.1 Clean performance across training seeds
+
+DistilBERT clean accuracy was:
+
+- seed 42: 85.06%,
+- seed 123: 85.45%,
+- seed 2026: 84.29%.
+
+Across the three training seeds:
+
+**mean clean accuracy = 84.94%, SD = 0.60 percentage points.**
+
+The modest variation indicates that clean performance was reasonably stable
+across the evaluated training realizations.
+
+## 18.2 Corrupted performance
+
+Across training seeds, mean perturbed accuracy was:
+
+| Perturbation | Mean accuracy | Training-seed SD |
+|---|---:|---:|
+| Typo | 69.04% | 0.81 pp |
+| Character deletion | 74.31% | 0.48 pp |
+| Word deletion | 69.55% | 0.44 pp |
+
+Mean absolute accuracy drops were:
+
+- typo: 15.89 pp,
+- character deletion: 10.62 pp,
+- word deletion: 15.38 pp.
+
+These degradation magnitudes were substantially larger than the corresponding
+variation across training seeds.
+
+## 18.3 Normalized accuracy retention
+
+Across the three independently trained models:
+
+| Perturbation | Mean retention | Training-seed SD |
+|---|---:|---:|
+| Typo | 81.29% | 0.68 pp |
+| Character deletion | 87.49% | 0.56 pp |
+| Word deletion | 81.89% | 0.05 pp |
+
+The corruption response was therefore highly consistent across training
+realizations.
+
+In particular, word-deletion retention was 81.87%, 81.85%, and 81.95% for
+training seeds 42, 123, and 2026, respectively.
+
+The previously observed DistilBERT degradation is therefore not explained by
+a single unusually fragile training realization.
+
+## 18.4 Comparison with sparse representations
+
+On BANKING77 at 20% corruption:
+
+| Model | Typo retention | Character-deletion retention | Word-deletion retention |
+|---|---:|---:|---:|
+| Word TF-IDF + Linear SVM | 89.30% | 91.99% | 88.15% |
+| Character TF-IDF + Linear SVM | 94.38% | 97.84% | 87.64% |
+| DistilBERT | 81.29% | 87.49% | 81.89% |
+
+Relative to DistilBERT, Word TF-IDF + Linear SVM retained:
+
+- +8.01 pp more accuracy under typo,
+- +4.50 pp more under character deletion,
+- +6.26 pp more under word deletion.
+
+Character TF-IDF + Linear SVM retained:
+
+- +13.09 pp more under typo,
+- +10.35 pp more under character deletion,
+- +5.75 pp more under word deletion.
+
+These results show that, under the evaluated BANKING77 configuration, the
+contextual transformer representation did not provide greater robustness to
+the tested lexical corruptions.
+
+This result should not be interpreted as evidence that transformer models are
+generally less robust than sparse models. It applies to the evaluated
+DistilBERT configuration, dataset, corruption mechanisms, and severity level.
+
+Nevertheless, the consistency across three independent training seeds reduces
+the likelihood that the observed ordering is an artifact of one particular
+DistilBERT training realization.
